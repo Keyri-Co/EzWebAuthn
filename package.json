@@ -1,0 +1,11 @@
+{
+  "name": "ezwebauthn",
+  "version": "1.0.0",
+  "description": "Easier method to work with WebAuthn. Cribbed from MasterKale.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justin W. Wolcott",
+  "license": "ISC"
+}
