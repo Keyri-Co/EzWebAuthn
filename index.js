@@ -1,7 +1,7 @@
 /**
  * Class to handle 
  */
-class EZWebAuthn{
+export default class EZWebAuthn{
 	
     //
     // SIMPLE STRING-TO-buffer`
@@ -101,7 +101,8 @@ class EZWebAuthn{
             user: {
                 ...creationOptionsJSON.user,
                 id: this.#utf8StringToBuffer(creationOptionsJSON.user.id),
-            }
+            },
+            excludeCredentials: creationOptionsJSON.excludeCredentials.map(toPublicKeyCredentialDescriptor)
         };
         
 
