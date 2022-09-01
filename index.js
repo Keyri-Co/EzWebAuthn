@@ -102,7 +102,7 @@ export default class EZWebAuthn{
                 ...creationOptionsJSON.user,
                 id: this.#utf8StringToBuffer(creationOptionsJSON.user.id),
             },
-            excludeCredentials: creationOptionsJSON.excludeCredentials.map(toPublicKeyCredentialDescriptor)
+//            excludeCredentials: creationOptionsJSON.excludeCredentials.map(toPublicKeyCredentialDescriptor)
         };
         
 
