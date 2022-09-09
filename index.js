@@ -1,7 +1,7 @@
 /**
  * Class to handle 
  */
-export default class EZWebAuthn{
+ export default class EZWebAuthn{
 	
     //
     // SIMPLE STRING-TO-buffer`
@@ -67,7 +67,7 @@ export default class EZWebAuthn{
         const { id } = descriptor;
         return {
             ...descriptor,
-            id: that.base64URLStringToBuffer(id),
+            id: this.#base64URLStringToBuffer(id),
         };
     }
 
@@ -95,14 +95,14 @@ export default class EZWebAuthn{
         // This builds out the options that `window.navigator` can consume
         // based on what options we feed it
         //
-        const publicKey = {
+        let publicKey = {
             ...creationOptionsJSON,
             challenge: that.#base64URLStringToBuffer(creationOptionsJSON.challenge),
             user: {
                 ...creationOptionsJSON.user,
-                id: this.#utf8StringToBuffer(creationOptionsJSON.user.id),
+                id: that.#utf8StringToBuffer(creationOptionsJSON.user.id),
             },
-//            excludeCredentials: creationOptionsJSON.excludeCredentials.map(toPublicKeyCredentialDescriptor)
+            excludeCredentials: creationOptionsJSON.excludeCredentials.map(this.#toPublicKeyCredentialDescriptor)
         };
         
 
